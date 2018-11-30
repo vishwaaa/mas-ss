@@ -1,0 +1,124 @@
+AWS Systems Manager   ??
+====================
+is a collection of capabilities for configuring and managing your Amazon EC2 instances, on-premises servers and virtual machines, and other AWS resources at scale. 
+
+Systems Manager includes a unified interface that allows you to easily centralize operational data and automate tasks across your AWS resources. 
+
+
+
+Work-flow for aws manager ?
+=======================
+Each Systems Manager capability, for example Run Command or Maintenance Windows, uses a similar process of set up, execution, processing, and reporting.
+
+Configure Systems Manager:
+ Use the Systems Manager console, SDK, AWS CLI, or AWS Toolkit for Windows PowerShell to configure, schedule, automate, and execute actions that you want to perform on your AWS resources.
+
+Verification and processing: 
+Systems Manager verifies the configurations, including permissions, and sends requests to the SSM Agent running on your instances or servers in your hybrid environment. SSM Agent performs the specified configuration changes.
+
+Reporting:
+ SSM Agent reports the status of the configuration changes and actions to Systems Manager in the AWS cloud. Systems Manager then sends the status to the user and various AWS services, if configured.
+
+
+====================================
+
+Capabilities
+=============
+Systems Manager includes the following capabilities:
+
+Following are the capabilites :
+
+Resource Groups
+Insights
+Actions
+Shared Resources
+
+
+Resorce groups
+===========
+AWS Resource Groups:
+ An AWS resource is an entity you can work with in AWS, such as an Amazon Elastic Compute Cloud (Amazon EC2) instance, an Amazon Elastic Block Store (Amazon EBS) volume, a security group, or an Amazon Virtual Private Cloud (VPC). A resource group is a collection of AWS resources that are all in the same AWS region, and that match criteria provided in a query.
+
+
+Insights
+======
+=Systems Manager provides the following capabilities for centrally viewing data about your AWS resources. 
+Built-in Insights-------> the resources in your AWS Resource Groups, such as AWS CloudTrail logs, results of evaluations against AWS Config rules, and AWS Trusted Advisor reports. Insights show information about a single, selected resource group at a time.
+
+CloudWatch Dashboards------->are customizable home pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different regions.
+
+Inventory Management--->automates the process of collecting software inventory from managed instances. You can use Inventory Manager to gather metadata about applications, files, components, patches, and more on your managed instances.
+
+Configuration Compliance----------->scan your fleet of managed instances for patch compliance and configuration inconsistencies. 
+
+
+
+Actions
+========
+Systems Manager provides the following capabilities for taking action against your AWS resources. Choose the tabs to learn more.
+
+Automation
+Run Command
+Session ManagerPatch 
+ManagementMaintenance
+ WindowsState Management
+
+
+
+Shared Resources
+=======
+Systems Manager uses the following shared resources for managing and configuring your AWS resources. Choose the tabs to learn more.
+
+Managed Instances
+Activations
+Systems Manager 
+DocumentsParameter Store
+
+
+
+ Product Integration
+====================
+You can use AWS Systems Manager with partner and product technologies such as GitHub, Amazon S3, and the Volume Shadow Copy Service (VSS) to automate the deployment, configuration, and maintenance of your managed instances.
+
+Referencing AWS Secrets Manager Secrets from Parameter Store Parameters
+Running Scripts from GitHub and Amazon S3
+Using Run Command to Take VSS-Enabled Snapshots of EBS Volumes
+Using Chef InSpec Profiles with Systems Manager Compliance.
+
+
+Monitoring Instances with AWS Systems Manager
+==================================
+SSM Agent writes information about executions, scheduled actions, errors, and health statuses to log files on each instance.
+
+Send Logs to CloudWatch Logs (CloudWatch Agent)
+
+Migrate Windows Server Instance Log Collection to the CloudWatch Agent
+
+Collect Metrics from Amazon Elastic Compute Cloud Instances and On-Premises Servers with the CloudWatch Agent .
+
+
+Authentication and Access Control for AWS Systems Manager
+===========================================
+
+Access to AWS Systems Manager requires credentials. Those credentials must have permissions to access AWS resources for tasks such as creating or updating documents and registering tasks and targets with Maintenance Windows
+
+Authentication
+
+Access Control
+
+
+
+Authenication
+=============
+Aws account root user
+IAM user
+IAM role--> Federated user access and cross-account access
+aws service access
+application running on amazon ec2
+
+
+We can also run the aws manager by 
+=======================
+Cron and Rate Expressions for Systems Manager.
+ 
+

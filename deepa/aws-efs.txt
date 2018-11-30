@@ -1,0 +1,128 @@
+EFS--(Elastic file syste)
+===================
+
+example : in windows we are having like NTFS file system, 
+in linux we are having like  ext2 , ext3, ext4 and xfs
+
+same we way, we are having EFS for aws
+
+Amazon EFS provides scalable file storage for use with Amazon EC2. 
+You can create an EFS file system and configure your instances to mount the file system. 
+You can use an EFS file system as a common data source for workloads and applications running on multiple instances. 
+For more information, see the Amazon Elastic File System product page.
+
+
+Important
+
+Amazon EFS is not supported on Windows instances.
+
+Tasks
+
+Prerequisites
+Step 1: Create an EFS File System
+Step 2: Mount the File System
+Step 3: Test the File System
+Step 4: Clean Up
+
+
+
+ Create an EFS File System
+
+
+Amazon EFS enables you to create a file system that multiple instances can mount and access at the same time. For more information, see Creating Resources for Amazon EFS in the Amazon Elastic File System User Guide.
+
+To create a file system
+
+Open the Amazon Elastic File System console at 
+
+Choose Create file system.
+
+On the Configure file system access page, do the following:
+
+For VPC, select the VPC to use for your instances.
+
+For Create mount targets, select all the Availability Zones.
+
+For each Availability Zone, ensure that the value for Security group is the security group that you created in Prerequisites.
+
+Choose Next Step.
+
+On the Configure optional settings page, do the following:
+
+For the tag with Key=Name, type a name for the file system in Value.
+
+For Choose performance mode, keep the default option, General Purpose.
+
+Choose Next Step.
+
+On the Review and create page, choose Create File System.
+
+After the file system is created, note the file system ID, 
+
+
+
+
+ Mount the File System
+Use the following procedure to launch two t2.micro instances. The user data script mounts the file system to both instances during launch and updates /etc/fstab to ensure that the file system is remounted after an instance reboot. Note that T2 instances must be launched in a subnet. You can use a default VPC or a nondefault VPC.
+
+Note
+
+There are other ways that you can mount the volume (for example, on an already running instance). For more information, see Mounting File Systems in the Amazon Elastic File System User Guide.
+
+To launch two instances and mount an EFS file system
+
+Open the Amazon EC2 console 
+
+Choose Launch Instance.
+
+On the Choose an Amazon Machine Image page, select an Amazon Linux AMI with the HVM virtualization type.
+
+On the Choose an Instance Type page, keep the default instance type, t2.micro and choose Next: Configure Instance Details.
+
+On the Configure Instance Details page, do the following:
+
+For Number of instances, type 2.
+
+[Default VPC] If you have a default VPC, it is the default value for Network. Keep the default VPC and the default value for Subnet to use the default subnet in the Availability Zone that Amazon EC2 chooses for your instances.
+
+[Nondefault VPC] Select your VPC for Network and a public subnet from Subnet.
+
+[Nondefault VPC] For Auto-assign Public IP, choose Enable. Otherwise, your instances do not get public IP addresses or public DNS names.
+
+Under Advanced Details, select As text, and paste the following script into User data. Update FILE_SYSTEM_ID with the ID of your file system. You can optionally update MOUNT_POINT with a directory for your mounted file system.
+
+
+Test the File System
+
+You can connect to your instances and verify that the file system is mounted to the directory that you specified (for example, /mnt/efs).
+
+To verify that the file system is mounted
+
+Connect to your instances. For more information, see Connect to Your Linux Instance.
+
+
+Clean Up
+When you are finished with this tutorial, you can terminate the instances and delete the file system.
+
+To terminate the instances
+
+Open the Amazon EC2 console
+In the navigation pane, choose Instances.
+
+Select the instances to terminate.
+
+Choose Actions, Instance State, Terminate.
+
+Choose Yes, Terminate when prompted for confirmation.
+
+To delete the file system
+
+Open the Amazon Elastic File System console 
+
+Select the file system to delete.
+
+Choose Actions, Delete file system.
+
+When prompted for confirmation, type the ID of the file system and choose Delete File System.
+
+From the terminal window for each instance, run the df -T command to verify that the EFS file system is mounted.

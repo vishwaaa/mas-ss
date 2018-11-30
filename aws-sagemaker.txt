@@ -1,0 +1,133 @@
+What Is Amazon SageMaker?
+
+Amazon SageMaker is a fully managed machine learning service. 
+
+With Amazon SageMaker, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment.
+
+It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don't have to manage servers.
+
+=======================================
+Understanding the flow of Amazon Sagemaker Alogrithm
+----------
+
+1 Generate samle data
+a .fetch the data
+b. clean the data
+c. prepare or transorm the data
+
+2. Train a model—Model training includes both training and evaluating the model
+a. Training the model
+b.  Evalutating the model
+
+
+3. Deploy the model
+
+
+===========================
+
+How to set up the Amazon sage maker
+---------------
+Step 1: Setting Up
+Step 2: Create an Amazon SageMaker Notebook Instance
+Step 3: Train a Model with a Built-in Algorithm and Deploy It
+Step 4: Clean up
+Step 5: Additional Considerations: Integrating Amazon SageMaker Endpoints into Internet-facing Applications
+
+--------------------------------------------
+
+1. Setting up
+a. aws account
+b . Create a s3 bucket to store the models
+----------------
+
+2.  Create an Amazon SageMaker Notebook Instance
+
+.1. Create a new role
+ This IAM role automatically has permissions to use that bucket. The AmazonSageMakerFullAccess policy, which Amazon SageMaker attaches to the role, gives the role those permissions.
+
+
+To access more S3 buckets from your Amazon SageMaker notebook instance
+
+If you're not concerned about users in your AWS account accessing your data, choose Any S3 bucket.
+
+If your account has sensitive data (such as Human Resources information), restrict access by choosing Specific S3 buckets. You can update the permissions policy attached to the role you are creating later.
+
+------------
+
+A trust policy that allows Amazon SageMaker to assume the role.
+
+The AmazonSageMakerFullAccess AWS managed policy.
+
+If you specified access to additional S3 bucket(s) when creating theis role, the customer managed policy attached to the role. 
+
+The name of the customer managed policy is AmazonSageMaker-ExecutionPolicy-YYYYMMDDTHHmmSS.
+
+For more information about creating your own IAM role, see Amazon SageMaker Roles .
+-----================================
+(Optional) Choose to access resources in a Virtual Private Cloud (VPC).
+-------------
+Choose the VPC and a SubnetId.
+For Security Group, choose your VPCs default security group. For the exercises in this guide, the inbound and outbound rules of the default security group are sufficient
+
+Ensure that the Amazon Redshift cluster is not publicly accessible.
+===========
+
+
+FOR Customize a Notebook Instance
+=======================
+To create a lifecycle configuration
+
+For Lifecycle configuration - Optional, choose Create a new lifecycle configuration.
+
+For Name, type a name.
+
+(Optional) To create a script that runs when you create the notebook and every time you start it, choose Start notebook.
+
+In the Start notebook editor, type the script.
+
+(Optional) To create a script that runs only once, when you create the notebook,, choose Create notebook.
+
+In the Create notebook editor, type the script configure networking.
+
+Choose Create configuration.
+
+===========================================
+
+
+For aws sagemaker security ??
+============================
+Notebook Instance Security
+
+Connect to Amazon SageMaker Through a VPC Interface Endpoint
+
+Protect Training Jobs by Using an Amazon Virtual Private Cloud
+
+Protect Endpoints by Using an Amazon Virtual Private Cloud
+
+Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud
+
+------------------------------------------
+
+1. Notebook Instance Security
+
+Notebook Instances Are Internet-Enabled by Default
+Notebook Instances Provide the Best Experience for a Single User
+
+===================================
+
+Identity-based Policies (IAM Policies) for Amazon SageMaker
+
+Permissions Required to Use the Amazon SageMaker Console
+AWS Managed (Predefined) Policies for Amazon SageMaker
+Control Access to Amazon SageMaker Resources by Using Tags
+=====================================
+
+Amazon SageMaker Role
+
+CreateNotebookInstance,
+ CreateHyperParameterTuningJob, 
+CreateTrainingJob, and CreateModel..
+
+
+
+

@@ -1,0 +1,126 @@
+AWS API Gatewary
+===========================
+
+API Gateway allows you to securely connect mobile and web applications to business logic hosted on AWS Lambda, 
+APIs hosted on Amazon EC2, or other publicly addressable web services hosted inside or outside of AWS. 
+With API Gateway, you can create and operate APIs for backend services.
+
+
+Amazon API Gateway is an AWS service that enables developers to create, publish, maintain, monitor, and secure APIs at any scale. 
+You can create APIs that access AWS or other web services, as well as data stored in the AWS Cloud.
+
+Gateway to AWS Cloud and Beyond
+Developer Experiences
+Benefits of API Gateway
+Amazon API Gateway Concepts
+API Gateway Pricing
+
+
+Getting Started with Amazon API Gateway
+===============================
+Get Ready to Build an API Gateway API
+Build an API Gateway API from an Example
+Build an API Gateway API with Lambda Integration
+Build an API Gateway API with HTTP Integrations
+Build an API with API Gateway Private Integration
+Build an API Gateway API with AWS Integration
+
+
+
+
+
+
+Create IAM Users, Groups, Roles, and Policies in Your AWS Account
+Create IAM Policies to Configure API Gateway Resources and to Call a Deployed API
+
+
+
+
+
+Create IAM Users, Groups, Roles, and Policies in Your AWS Account
+========================
+Create IAM Policies to Configure API Gateway Resources and to Call a Deployed API
+ Control Access to an API with IAM Permissions.
+ Control Access to an API with IAM Permissions.
+
+
+
+Creating an API in Amazon API Gateway
+====================
+Choose an Endpoint Type to Set up an API Gateway API
+Initialize API Setup in API Gateway
+Set up API Methods in API Gateway
+Set up API Integrations in API Gateway
+Set up Gateway Responses to Customize Error Responses
+Set up API Gateway Request and Response Data Mappings
+Support Binary Payloads in API Gateway
+Enable Payload Compression for an API
+Enable Request Validation in API Gateway
+Update and Maintain an API in Amazon API Gateway
+Import an API into API Gateway
+Choose an Endpoint Type to Set up
+
+Choose an Endpoint Type to Set up an API Gateway API
+
+
+
+
+Controlling Access to an API in API Gateway
+====================================
+API Gateway supports multiple mechanisms for controlling access to your API:
+
+Resource policies let you create resource-based policies to allow or deny access to your APIs and methods from specified source IP addresses or VPC endpoints.
+
+Standard AWS IAM roles and policies offer flexible and robust access controls that can be applied to an entire API or individual methods.
+
+Cross-origin resource sharing (CORS) lets you control how your API responds to cross-domain resource requests.
+
+Lambda authorizers are Lambda functions that control access to your API methods using bearer token authentication as well as information described by headers, paths, query strings, stage variables, or context variables request parameters.
+
+Amazon Cognito user pools let you create customizable authentication and authorization solutions.
+
+Client-side SSL certificates can be used to verify that HTTP requests to your backend system are from API Gateway.
+
+Usage plans let you provide API keys to your customers — and then track and limit usage of your API stages and methods for each API key.
+
+Topics
+
+Control Access to an API with Amazon API Gateway Resource Policies
+Control Access to an API with IAM Permissions
+Use API Gateway Lambda Authorizers
+Control Access to an API Using Amazon Cognito User Pools
+Enable CORS for an API Gateway Resource
+Use Client-Side SSL Certificates for Authentication by the Backend
+Create and Use Usage Plans with API Keys
+
+
+
+Control Access to an API with IAM Permissions
+===============================
+API Gateway Permissions Model for Creating and Managing an API
+
+Control Cross-Account Access to Your API
+=============
+IAM Policy for Cross-Account Lambda Authorize
+IAM Policy for Cross-Account Lambda Integration
+
+
+
+Create and Attach a Policy to an IAM User
+To enable a user to call the API managing service or the API execution service, you must create an IAM policy for an IAM user, which controls access to the API Gateway entities, and then attach the policy to the IAM user. The following steps describe how to create your IAM policy.
+
+To create your own IAM policy
+
+Sign in to the AWS Management Console and open the IAM console .
+
+Choose Policies, and then choose Create Policy. If a Get Started button appears, choose it, and then choose Create Policy.
+
+Next to Create Your Own Policy, choose Select.
+
+For Policy Name, type any value that is easy for you to refer to later. Optionally, type descriptive text in Description.
+
+For Policy Document, type a policy statement with the following format, and then choose Create Policy:
+
+
+
+

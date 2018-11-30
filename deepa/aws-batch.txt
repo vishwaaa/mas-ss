@@ -1,0 +1,91 @@
+What is AWS Batch ?
+AWS Batch is a service that enables IT professionals to schedule and execute batch processing jobs.
+
+Components of Jobs
+==============
+jobs
+job definitions
+job quues
+compute environment
+
+AWS Batch IAM Policies, Roles, and Permissions..?
+====================================
+
+By default, IAM users don't have permission to create or modify AWS Batch resources, or perform tasks using the AWS Batch API. 
+
+To allow IAM users to create or modify resources and submit jobs, you must create IAM policies that grant IAM users permission to use the specific resources and API actions they'll need, and then attach those policies to the IAM users or groups that require those permissions.
+
+
+When you attach a policy to a user or group of users, it allows or denies the users permission to perform the specified tasks on the specified resources. 
+
+
+
+An IAM policy must grant or deny permissions to use one or more AWS Batch actions.
+===================================================================
+Following are the details need to be known
+
+Policy Structure
+AWS Batch Managed Policy
+Creating AWS Batch IAM Policies
+AWS Batch Service IAM Role
+Amazon ECS Instance Role
+Amazon EC2 Spot Fleet Role
+CloudWatch Events IAM Role
+
+
+
+
+Policy Synatax
+====
+Effect
+action
+resource
+condition
+
+Actions for AWS batch
+---
+Amazon Resource Names for AWS Batch
+
+
+AWS Batch Service IAM Role
+==========================
+AWS Batch makes calls to other AWS services on your behalf to manage the resources that you use with the service. Before you can use the service, you must have an IAM policy and role that provides the necessary permissions to AWS Batch.
+
+
+To check for the AWSBatchServiceRole in the IAM console
+
+Open the IAM console 
+
+In the navigation pane, choose Roles.
+
+Search the list of roles for AWSBatchServiceRole. If the role does not exist, use the procedure below to create the role. If the role does exist, select the role to view the attached policies.
+
+Choose Permissions.
+
+Ensure that the AWSBatchServiceRole managed policy is attached to the role. If the policy is attached, your AWS Batch service role is properly configured. If not, follow the substeps below to attach the policy.
+
+Choose Attach Policy.
+
+For Filter, type AWSBatchServiceRole to narrow the list of available policies to attach.
+
+Select the AWSBatchServiceRole policy and choose Attach Policy.
+
+Choose Trust Relationships, Edit Trust Relationship.
+
+Verify that the trust relationship contains the following policy. If the trust relationship matches the policy below, choose Cancel. If the trust relationship does not match, copy the policy into the Policy Document window and choose Update Trust Policy.
+
+
+To create the AWSBatchServiceRole IAM role
+
+Open the IAM console 
+
+In the navigation pane, choose Roles, Create New Role.
+
+On the Select type of trusted entity page, choose AWS service, Batch, and Next: Permissions.
+
+Choose Next: Review.
+
+For Role Name, type AWSBatchServiceRole and then choose Create Role.
+
+
+

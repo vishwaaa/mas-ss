@@ -1,0 +1,99 @@
+Verifying the Default Service Role's Permissions
+Updating an Out-of-Date Default Service Role
+Adding Permissions to the Default Service Role
+Creating a Service Role
+Using Service-Linked Roles for Elastic Beanstalk
+Verifying the Default Service Role's Permissions
+The permissions granted by your default service role can vary depending on when it was created, the last time you launched an environment, and which client you used. You can verify the permissions granted by the default service role in the IAM console.
+
+To verify the default service role's permissions
+
+Open the Roles page in the IAM console.
+
+Choose aws-elasticbeanstalk-service-role.
+
+On the Permissions tab, in the Managed Policies and Inline Policies sections, review the list of policies attached to the role.
+
+To view the permissions that a policy grants, choose Show Policy next to the policy.
+
+Updating an Out-of-Date Default Service Role
+If the default service role lacks the required permissions, you can update it by creating a new environment in the Elastic Beanstalk environment management console.
+
+Alternatively, you can add the managed policies to the default service role manually.
+
+To add managed policies to the default service role
+
+Open the Roles page in the IAM console.
+
+Choose aws-elasticbeanstalk-service-role.
+
+On the Permissions tab, under Managed Policies, choose Attach Policy.
+
+Type AWSElasticBeanstalk to filter the policies.
+
+Select the following policies, and then choose Attach Policies:
+
+AWSElasticBeanstalkEnhancedHealth
+
+AWSElasticBeanstalkService
+
+Adding Permissions to the Default Service Role
+If your application includes configuration files that refer to AWS resources for which permissions aren't included in the default service role, Elastic Beanstalk might need additional permissions to resolve these references when it processes the configuration files during a managed update. If permissions are missing, the update fails and Elastic Beanstalk returns a message indicating which permission it needs. Add permissions for additional services to the default service role in the IAM console.
+
+To add additional policies to the default service role
+
+Open the Roles page in the IAM console.
+
+Choose aws-elasticbeanstalk-service-role.
+
+On the Permissions tab, under Managed Policies, choose Attach Policy.
+
+Select the managed policy for the additional services that your application uses. For example, AmazonAPIGatewayAdministrator or AmazonElasticFileSystemFullAccess.
+
+Choose Attach Policies.
+
+Creating a Service Role
+If you can't use the default service role, create a service role.
+
+To create a service role
+
+Open the Roles page in the IAM console.
+
+Choose Create New Role.
+
+Type a name, and then choose Next Step.
+
+Under AWS Service Roles, choose AWS Elastic Beanstalk.
+
+Attach the AWSElasticBeanstalkService and AWSElasticBeanstalkEnhancedHealth managed policies and any additional policies that provide permissions that your application needs.
+
+Choose Next Step.
+
+Choose Create Role.
+
+You can apply your custom service role when you create an environment in the environment creation wizard or with the --service-role option on the eb create command.
+==========================================
+
+
+Service-Linked Role Permissions for Amazon ECS
+====================================
+Amazon ECS uses the service-linked role named AWSServiceRoleForECS – Role to enable Amazon ECS to manage your cluster..
+
+
+To allow an IAM entity to create the AWSServiceRoleForECS service-linked role
+
+To allow an IAM entity to edit the description of the AWSServiceRoleForECS service-linked role
+
+
+To allow an IAM entity to delete the AWSServiceRoleForECS service-linked role
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+Aws-Beanstalk ?
+==============
+Beanstalk is an Orchestartion Service tool
+----------
+simply upload (web application)their application, and Elastic Beanstalk automatically handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring.
+
+
+Who should use aws beanstalk ??
+====================
+
+Those who want to deploy and manage their applications within minutes in the AWS Cloud. 
+ AWS Elastic Beanstalk supports Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker web applications.
+
+
+What can developers now do with AWS Elastic Beanstalk that they could not before?
+================================================
+AWS Elastic Beanstalk automates the details of capacity provisioning, load balancing, auto scaling, and application deployment, creating an environment that runs a version of your application. 
+
+You can simply upload your deployable code (e.g., WAR file), and AWS Elastic Beanstalk does the rest.
+
+
+What are the Cloud resources powering my AWS Elastic Beanstalk application?
+===================================================
+AWS Elastic Beanstalk uses proven AWS features and services, such as Amazon EC2, Amazon RDS, Elastic Load Balancing, Auto Scaling, Amazon S3, and Amazon SNS, to create an environment that runs your application. The current version of AWS Elastic Beanstalk uses the Amazon Linux AMI or the Windows Server 2012 R2 AMI.
+
+
+
+What kinds of applications are supported by AWS Elastic Beanstalk?
+=========================================
+AWS Elastic Beanstalk supports Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker, and is ideal for web applications. 
+
+
+Databases and Storage (we can use storage for these two services)
+==================
+
+Does AWS Elastic Beanstalk store anything in Amazon S3?
+===================================
+Yes. AWS Elastic Beanstalk stores your application files and, optionally, server log files in Amazon S3.
+
+Can I use Amazon S3 to store application data, like images?
+========================
+Yes. You can use Amazon S3 for application storage. 
+
+
+Security releated concerts for AWS-Beanstalk ?
+===================================
+How do I make my application private?
+
+By default, your application is available publicly at myapp.elasticbeanstalk.com for anyone to access. 
+
+You can use Amazon VPC to provision a private, isolated section of your application in a virtual network that you define.
+
+Can I run my application inside a Virtual Private Cloud (VPC)?
+==============================================
+
+Yes, you can run your applications in a VPC.
+
+
+Why should I use IAM with AWS Elastic Beanstalk?
+===================================
+IAM allows you to manage users and groups in a centralized manner. You can control which IAM users have access to AWS Elastic Beanstalk, and limit permissions to read-only access to Elastic Beanstalk for operators who should not be able to perform actions against Elastic Beanstalk resources. All user activity within your account will be aggregated under a single AWS bill.
+
+
+How do I grant an IAM user access to AWS Elastic Beanstalk?
+=======================
+You can grant IAM users access to services by using policies
+
+
+
+ Can I restrict access to specific AWS Elastic Beanstalk resources?
+===============================================
+Yes. You can allow or deny permissions to specific AWS Elastic Beanstalk resources, such as applications, application versions, and environments.
+
+
+Service Roles, Instance Profiles, and User Policies ??
+===================================
+When you create an environment, AWS Elastic Beanstalk prompts you to provide two AWS Identity and Access Management (IAM) roles: a service role and an instance profile.
+
+
+Elastic Beanstalk Service Role
+Elastic Beanstalk Instance Profile
+Elastic Beanstalk User Policy
+
+Elastic Beanstalk Service Role ?
+===========================
+A service role is the IAM role that Elastic Beanstalk assumes when calling other services on your behalf.
+
+
+
+Elastic Beanstalk Instance Profile ?
+=================================
+An instance profile is an IAM role that is applied to instances launched in your Elastic Beanstalk environment. When creating an Elastic Beanstalk environment, you specify the instance profile that is used when your instances:
+
+Retrieve application versions from Amazon Simple Storage Service (Amazon S3)
+
+Write logs to Amazon S3
+
+In AWS X-Ray integrated environments, upload debugging data to X-Ray
+
+In multicontainer Docker environments, coordinate container deployments with Amazon Elastic Container Service
+
+In worker environments, read from an Amazon Simple Queue Service (Amazon SQS) queue
+
+In worker environments, perform leader election with Amazon DynamoDB
+
+In worker environments, publish instance health metrics to Amazon CloudWatch.
+
+
+
+
+Elastic Beanstalk User Policy ?
+===========================
+Create IAM users for each person who uses Elastic Beanstalk to avoid using your root account or sharing credentials. For increased security, only grant these users permission to access services and features that they need.
+
+
+
+AWS Elastic Beanstalk Environment Security ?
+===============================
+Elastic Beanstalk provides several options that control the security of your environment and of the Amazon EC2 instances in it.
+
+
+Configuring Your Environment Security
+Environment Security Configuration Namespaces
+
+
+
+Configuring Your Environment Security
+========================
+You can modify your Elastic Beanstalk environment security configuration in the Elastic Beanstalk console.
+
+To configure environment security in the Elastic Beanstalk console
+
+Open the Elastic Beanstalk console.
+
+Navigate to the management page for your environment.
+
+Choose Configuration.
+
+
+
+Environment Security Configuration Namespaces 
+==================
+Elastic Beanstalk provides configuration options in the following namespaces to enable you to customize the security of your environment:
+
+aws:elasticbeanstalk:environment – Configure the environment's service role using the ServiceRole option.
+
+aws:autoscaling:launchconfiguration – Configure permissions for the environment's Amazon EC2 instances using the EC2KeyName and IamInstanceProfile options.
+On the Security configuration card, choose Modify.
+
+The following settings are available.
+
+Options
+
+Service role
+EC2 key pair
+IAM Instance Profile
+
+

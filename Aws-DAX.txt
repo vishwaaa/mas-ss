@@ -1,0 +1,100 @@
+DAX---security----DynamoDB Accelerator (DAX) 
+============================================
+Amazon DynamoDB Accelerator (DAX) (service prefix: dax) 
+
+provides the following service-specific resources, actions, and condition context keys for use in IAM permission policies.
+
+DAX is designed to work together with DynamoDB, to seamlessly add a caching layer to your applications.
+
+ However, DAX and DynamoDB are separate AWS services. 
+Even though both services use AWS Identity and Access Management (IAM) to implement their respective security policies, the security models for DAX and DynamoDB are different.
+==================================================
+Use Cases for DAX
+DAX provides access to eventually consistent data from DynamoDB tables, with microsecond latency. A multi-AZ DAX cluster can serve millions of requests per second.
+=======================================================
+
+With DynamoDB, you can create IAM policies that limit the actions a user can perform on individual DynamoDB resources.
+
+For example, you can create a user role that only allows the user to perform read-only actions on a particular DynamoDB table. (For more information.
+===================================================
+But--DAX focuses on 
+----------------
+
+the DAX security model focuses on cluster security, and the ability of the cluster to perform DynamoDB API actions on your behalf.
+
+=========================================================
+Warning :: De-merits  of DAX
+---------------------------------------
+
+DAX does not enforce user-level separation on data in DynamoDB. Instead,
+ users inherit the permissions of the DAX cluster's IAM policy when they access that cluster. 
+Thus, when accessing DynamoDB tables via DAX, the only access controls that are in effect are the permissions in the DAX cluster's IAM policy. No other permissions are recognized.
+
+If you require isolation, we recommend that you create additional DAX clusters and scope the IAM policy for each cluster accordingly. 
+For example, you could create multiple DAX clusters and allow each cluster to access only a single table.
+=========================================================
+IAM Service Role for DAX
+
+When you create a DAX cluster, you must associate the cluster with an IAM role. This is known as the service role for the cluster.
+----------------------------------------------------------------------
+IAM Policy to Allow DAX Cluster Access
+Once you have created a DAX cluster, you need to grant permissions to an IAM user so that the user can access the DAX cluster.
+
+------------------------------------
+example of accessing the Dynamo DB table :
+An IAM user (mahesh).
+
+An IAM role (maheshUserRole). Bob assumes this role at runtime.
+
+An IAM policy (BobAccessPolicy). This policy is attached to BobUserRole. BobAccessPolicy defines the DynamoDB and DAX resources that BobUserRole is allowed to access.
+
+A DAX cluster (DAXCluster01).
+
+An IAM service role (DAXServiceRole). This role allows DAXCluster01 to access DynamoDB.
+
+An IAM policy (DAXAccessPolicy). This policy is attached to DAXServiceRole. DAXAccessPolicy defines the DynamoDB APIs and resources that DAXCluster01 is allowed to access.
+
+A DynamoDB table (Books).
+Access to DynamoDB, But No Access With DAX
+Read-Only Access to DynamoDB (Only)
+Read-Write Access to DynamoDB (Only)
+Read-Only Access to DynamoDB and Read-Only Access to DAX
+Read-Write Access to DynamoDB and Read-Only with DAX
+Read-Write Access to DynamoDB and Read-Write Access to DAX
+=======================================================
+Access to DynamoDB Via DAX, But No Direct Access to DynamoDB
+==================================================================================================================
+
+DAX Cluster Components
+A DAX cluster is comprised of AWS infrastructure components. This section describes these components, and how they work together.
+Nodes
+Clusters
+Regions and Availability Zones
+Parameter Groups
+Security Groups
+Cluster ARN
+Cluster Endpoint
+Node Endpoints
+Subnet Groups
+Events
+Maintenance Window
+========================
+
+DAX and DynamoDB Consistency Models
+===============================
+Consistency Among DAX Cluster Nodes
+DAX Item Cache Behavior
+DAX Query Cache Behavior
+Strongly Consistent Reads
+Negative Caching
+Strategies for Writes
+
+
+
+
+
+
+
+
+Create a Service Role for DAX - Amazon DynamoDB
+Create an IAM User and Policy - Amazon DynamoDB
